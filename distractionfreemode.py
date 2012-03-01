@@ -1,20 +1,4 @@
 from gi.repository import GObject, Gedit, Gtk
-'''
-class ExampleAppActivatable(GObject.Object, Gedit.AppActivatable):
-    __gtype_name__ = "ExampleAppActivatable"
-    app = GObject.property(type=Gedit.App)
-    
-    def __init__(self):
-        GObject.Object.__init__(self)
-    
-    def do_activate(self):
-        pass
-        #print "Application %s activated." % self.app
-
-    def do_deactivate(self):
-        pass
-        #print "Application %s deactivated." % self.app
-'''  
 
 _width = 600
 
@@ -47,14 +31,7 @@ class DistractionFreeWindowActivatable(GObject.Object, Gedit.WindowActivatable):
 
     def do_activate(self):
         self._add_ui()
-        #print "Window %s activated." % self.window
         self.window.connect("check-resize", self.resize_check, self)
-        '''w, h = self.window.get_size()
-        views = self.window.get_views()
-        margin = (w-_width)/2
-        for view in views:
-            view.set_left_margin(margin)
-            view.set_right_margin(margin)'''
 
 
     def resize_check(self, container, widget):
@@ -72,15 +49,9 @@ class DistractionFreeWindowActivatable(GObject.Object, Gedit.WindowActivatable):
     def do_deactivate(self):
         self.window.disconnect("check-resize")
         self._remove_ui()
-        #print "Window %s deactivated." % self.window
 
     def do_update_state(self):
-        '''w, h = self.window.get_size()
-        views = self.window.get_views()
-        margin = (w-_width)/2
-        for view in views:
-            view.set_left_margin(margin)
-            view.set_right_margin(margin)'''
+        pass
 
     def on_DF_action_activate(self, action, data=None):
         self._active = not self._active
@@ -90,26 +61,3 @@ class DistractionFreeWindowActivatable(GObject.Object, Gedit.WindowActivatable):
         manager.remove_ui(self._ui_merge_id)
         manager.remove_action_group(self._actions)
         manager.ensure_update()
-            
-'''  
-class ExampleViewActivatable(GObject.Object, Gedit.ViewActivatable):
-    __gtype_name__ = "ExampleViewActivatable"
-    view = GObject.property(type=Gedit.View)
-
-    def __init__(self):
-        GObject.Object.__init__(self)
-    
-    def do_activate(self):
-        self.view.set_wrap_mode(gtk.WRAP_WORD_CHAR)
-
-    def do_deactivate(self):
-        pass
-        #print "View %s deactivated." % self.view
-
-    def do_update_state(self):
-        pass
-        #print "View %s state updated." % self.view
-        #global _width
-        #self.view.set_left_margin((_width-500)/2)
-    
-'''
