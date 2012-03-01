@@ -1,0 +1,7 @@
+This is simple plugin for gedit 3.x that provides a distraction free setting similar to the one provded by sublime text editor.
+
+Widescreen monitors are far from ideal for writing, with the editor maximized to full screen. With editor places in only part of the screen the background provides a distraction.
+
+On activation of this plugin, the text is moved into a 600px column in the middle of the screen, which is ideal for writing on most monitor that i have tested. Using this plugin along with white text on a dark background and the gedit set in fullscreen mode gives the best results.
+
+To install copy the .plugin and .py files to ~/.local/share/gedit/plugins/ distectory(create the dir if it does not exsist) and restart gedit. activate from Edit > preference > plugins. A new button is created on the toolbar for toggling the mode.

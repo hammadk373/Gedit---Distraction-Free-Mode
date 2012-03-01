@@ -1,0 +1,8 @@
+[Plugin]
+Loader=python
+Module=distractionfreemode
+IAge=3
+Name=DistractionFreeMode
+Description=Distraction Free mode for writing
+Authors=Hammad Khan(hammad.ullah@gmail.com)
+Version=3.0.0
